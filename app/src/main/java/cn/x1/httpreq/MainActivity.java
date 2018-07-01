@@ -33,14 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-               // for(int i=0;i<50;i++){
+                for(int i=0;i<80;i++){
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            sendGet();
+                            while(true) {
+                                sendGet();
+                            }
                         }
                     }).start();
-               // }
+                }
                 Log.d("click","aaa");
             }
         });
@@ -89,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            sendGet();
         }
         //System.out.println(result);
         Pattern pa = Pattern.compile(">浏览(.+?)次<");
